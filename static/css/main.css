@@ -1,0 +1,135 @@
+/* Ensure the body takes up the full height */
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Container for the split layout */
+.split {
+    height: 100%;
+    position: fixed;
+    width: 50%;
+    z-index: 1;
+    top: 0;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+/* Left side style */
+.left {
+    left: 0;
+    background-color: #111; /* Dark background color */
+    color: #fff; /* White text color */
+}
+
+/* Right side style */
+.right {
+    right: 0;
+    background-color: #f8f9fa; /* Light background color */
+    padding: 20px; /* Padding to prevent content from touching edges */
+}
+
+/* Centered container for the image */
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+/* Image styling */
+.centered img {
+    width: 100%;
+    max-width: 400px; /* Ensure the image doesn't exceed a max width */
+    height: auto;
+    border-radius: 10px; /* Optional: Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow to image */
+}
+
+/* Positive and Negative reviews label styling */
+label {
+    font-size: 1.2em;
+    color: #333; /* Dark text color */
+    display: block;
+    margin-bottom: 10px;
+}
+
+/* Form styling */
+form {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Textarea styling */
+textarea {
+    width: 100%;
+    height: 150px;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    font-size: 1em;
+    resize: none; /* Prevent resizing */
+}
+
+/* Submit button styling */
+input[type="submit"] {
+    align-self: flex-start;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff; /* Bootstrap primary color */
+    color: #fff;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3; /* Darker shade for hover effect */
+}
+
+/* Comment section styling */
+.coment-bottom {
+    background-color: #ffffff; /* White background for comments */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Light shadow for better visibility */
+    padding: 15px; /* Padding around the comments */
+}
+
+/* Comment section styling */
+.comment-section {
+    margin-top: 20px;
+}
+
+.comment-section hr {
+    border: none;
+    border-top: 1px solid #ddd; /* Light border for separation */
+    margin: 10px 0;
+}
+
+.commented-user {
+    font-weight: bold;
+    color: #333; /* Dark text color for the user name */
+    margin-bottom: 5px;
+}
+
+.text-nowrap {
+    word-wrap: break-word; /* Allow long words to break to the next line */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .split {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+
+    .left, .right {
+        width: 100%;
+    }
+}
