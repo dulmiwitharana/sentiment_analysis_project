@@ -1,11 +1,13 @@
 from flask import Flask, render_template, request, redirect
 from helper import preprocessing, vectorizer, get_prediction
-import logging
+from logger import logging
 
-# Set up basic logging
-logging.basicConfig(level=logging.INFO)
+
+
 
 app = Flask(__name__)
+
+logging.info('Flask server started')
 
 data = dict()
 reviews = []
@@ -17,14 +19,24 @@ def index():
     data['reviews'] = reviews
     data['positive'] = positive
     data['negative'] = negative
+
+    logging.info('========== Open home page ============')
+
     return render_template('index.html', data=data)
 
 @app.route("/", methods=['POST'])
 def my_post():
     text = request.form['text']
+    logging.info(f'Text : {text}')
+    
     preprocessed_txt = preprocessing(text)
+    logging.info(f'Preprocessed Text : {preprocessed_txt}')
+
     vectorized_txt = vectorizer(preprocessed_txt)
+    logging.info(f'Vectorized Text : {vectorized_txt}')
+
     prediction = get_prediction(vectorized_txt)
+    logging.info(f'Prediction : {prediction}')
 
     global positive, negative
 
